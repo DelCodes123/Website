@@ -4,9 +4,17 @@
     {
       "src": "Website/app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "Website/static/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/Website/static/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "Website/app.py"
